@@ -1,0 +1,47 @@
+@import './../../styles/_global.scss';
+
+.MenuSlide {
+    width: 100%;
+    opacity: 0;
+    width: 0;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+
+    h1 {
+        color: darken(white, 5%);
+        text-align: center;
+        font-family: $Montserrat;
+        margin-top: 45vh;
+    }
+
+}
+
+a {
+    text-decoration: none;
+}
+
+.scaleUp {
+    transform: scale(1.2) !important;
+}
+
+.black {
+    background-color: $black;
+}
+
+.yellow {
+    background-color: $yellow;
+}
+
+
+
+.lightyellow {
+    background-color: $lightyellow;
+}
+
+.red {
+    background-color: $red;
+}
+
+.blue {
+    background-color: $blue;
+}
