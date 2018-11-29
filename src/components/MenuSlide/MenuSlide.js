@@ -21,13 +21,18 @@ const MenuSlide = props => {
   return (
     <VelocityComponent
       runOnMount={true}
-      duration={200}
-      animation={{ opacity: 1, width: "20%" }}
-      ease={"ease-in-out"}
+      duration={1000}
+      animation={{
+        // opacity: 1,
+        width: "20%",
+        // height: "20%" 
+      }}
+      easing={[0.17, 0.67, -0.13, 0.67]}
     >
       <VelocityComponent
         runOnMount={true}
-        duration={10}
+        duration={200}
+        targetQuerySelector={"h1"}
         animation={{ scale: props.isHover ? 1.2 : 1 }}
       >
         <Link

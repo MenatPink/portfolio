@@ -18,7 +18,7 @@ class Titlecard extends Component {
               "testing out new ideas",
               "like this!",
               "etc etc",
-              "now Were working"
+              "we're working"
             ]}
             typeSpeed={40}
             backSpeed={50}

@@ -8,7 +8,10 @@
     overflow: auto;
     box-sizing: border-box;
     padding: 20px;
-    height: 100vh;
+    position: static;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
     transition: transform 0.5s, opacity 0.5s;
 
     &.transition-appear {
@@ -29,5 +32,13 @@
     &.transition-leave.transition-leave-active {
         opacity: 0;
         transform: translate3d(100%, 0, 0);
+    }
+
+    .bigRow {
+        height: 500px;
+    }
+
+    .marginGapMed {
+        margin-top: 150px;
     }
 }

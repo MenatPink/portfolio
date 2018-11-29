@@ -42,6 +42,17 @@ class App extends Component {
           title: "Skills"
         }
       }
+    },
+    portfolio: {
+      d3: {
+        isHover: false,
+      },
+      react: {
+        isHover: false,
+      },
+      graphql: {
+        isHover: false,
+      }
     }
   };
 
@@ -76,7 +87,7 @@ class App extends Component {
           classNames={"fade"}
         >
           <Switch location={this.props.location.key}>
-            <div className={classNames(styles.App, "fade")}>
+            <div className={classNames(styles.App)}>
               <Route
                 path="/"
                 exact
