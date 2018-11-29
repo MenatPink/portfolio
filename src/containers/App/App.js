@@ -63,6 +63,10 @@ class App extends Component {
     this.setState({ menuOpen: false });
   };
 
+  portfolioHoverStateHandler = e => { }
+
+  portfolioHoverOutStateHandler = e => { }
+
   hoverStateHandler = e => {
     let item = e.currentTarget.getAttribute("item");
     this.setState(prevState => {

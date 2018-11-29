@@ -6,6 +6,7 @@ import breakfast from "../../assets/images/breakfast.jpeg"
 const PortfolioItem = props => {
     return <VelocityComponent
         duration={2000}
+        animation
     >
         <div className={styles.PortfolioItem}>
             <div className={styles.border}></div>
