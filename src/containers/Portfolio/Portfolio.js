@@ -6,22 +6,25 @@ import Hamburger from "../../components/Hamburger/Hamburger";
 import { Link } from "react-router-dom";
 import PortfolioItem from "../../components/PortfolioItem/PortfolioItem";
 import { Grid, Row, Col } from 'react-bootstrap';
+import Aux from "../../hoc/Auxiliary";
+import d3 from "./d3/d3";
+import { Route, Redirect, Switch, withRouter } from "react-router-dom";
 
-const Portfolio = props => (
-  <div className={"transition-item"}>
+const Portfolio = (props, match) => (
+  <Aux>
     <div className={classNames(styles.Portfolio, styles.yellow)}>
       <Link to="/">
       </Link>
       <Grid fluid={true}>
         <Row className={classNames(styles.bigRow, styles.marginGapMed)}>
           <Col xs={4}>
-            <PortfolioItem number={1} />
+            <PortfolioItem title={props.portfolio.d3.title} />
           </Col>
           <Col xs={4}>
-            <PortfolioItem />
+            <PortfolioItem title={props.portfolio.react.title} />
           </Col>
           <Col xs={4}>
-            <PortfolioItem />
+            <PortfolioItem title={props.portfolio.graphql.title} />
           </Col>
         </Row>
         <Row className={styles.bigRow}>
@@ -45,7 +48,9 @@ const Portfolio = props => (
         </Row>
       </Grid>
     </div>
-  </div>
+    <Route path={`${match.path}/d3`}
+      exact component={d3} />
+  </Aux>
 );
 
 export default Portfolio;

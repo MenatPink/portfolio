@@ -46,12 +46,15 @@ class App extends Component {
     portfolio: {
       d3: {
         isHover: false,
+        title: "d3",
       },
       react: {
         isHover: false,
+        title: "React-Training"
       },
       graphql: {
         isHover: false,
+        title: "GraphQL"
       }
     }
   };
@@ -84,60 +87,53 @@ class App extends Component {
   render() {
     console.log(this);
     return (
-      <TransitionGroup>
-        <CSSTransition
-          key={this.props.location.key}
-          timeout={{ enter: 300, exit: 300 }}
-          classNames={"fade"}
-        >
-          <Switch location={this.props.location.key}>
-            <div className={classNames(styles.App)}>
-              <Route
-                path="/"
-                exact
-                render={({ location }) => {
-                  return (
-                    <Aux>
-                      <Home menuOpenHandler={this.menuOpenHandler} />
-                      {this.state.menuOpen ? (
-                        <Menu
-                          menu={this.state.menu.menuOptions}
-                          isHoverHandler={this.hoverStateHandler}
-                          isHoverOutHandler={this.hoverOutStateHandler}
-                          menuClose={this.menuCloseHandler}
-                        />
-                      ) : null}
-                    </Aux>
-                  );
-                }}
+      <Switch location={this.props.location.key}>
+        <div className={classNames(styles.App)}>
+          <Route
+            path="/"
+            exact
+            render={({ location }) => {
+              return (
+                <Aux>
+                  <Home menuOpenHandler={this.menuOpenHandler} />
+                  {this.state.menuOpen ? (
+                    <Menu
+                      menu={this.state.menu.menuOptions}
+                      isHoverHandler={this.hoverStateHandler}
+                      isHoverOutHandler={this.hoverOutStateHandler}
+                      menuClose={this.menuCloseHandler}
+                    />
+                  ) : null}
+                </Aux>
+              );
+            }}
+          />
+          <Route path="/Home" exact render={() => <Redirect to="/" />} />
+          <Route
+            path="/Portfolio"
+            exact
+            render={routeProps => (
+              <Portfolio
+                {...routeProps}
+                color={this.state.menu.menuOptions.Portfolio.color}
+                portfolio={this.state.portfolio}
               />
-              <Route path="/Home" exact render={() => <Redirect to="/" />} />
-              <Route
-                path="/Portfolio"
-                exact
-                render={routeProps => (
-                  <Portfolio
-                    {...routeProps}
-                    color={this.state.menu.menuOptions.Portfolio.color}
-                  />
-                )}
+            )}
+          />
+          <Route
+            path="/About"
+            exact
+            render={routeProps => (
+              <About
+                {...routeProps}
+                color={this.state.menu.menuOptions.Portfolio.color}
               />
-              <Route
-                path="/About"
-                exact
-                render={routeProps => (
-                  <About
-                    {...routeProps}
-                    color={this.state.menu.menuOptions.Portfolio.color}
-                  />
-                )}
-              />
-              <Route path="/Contact" exact component={Contact} />
-              <Route path="/Skills" exact component={Skills} />
-            </div>
-          </Switch>
-        </CSSTransition>
-      </TransitionGroup>
+            )}
+          />
+          <Route path="/Contact" exact component={Contact} />
+          <Route path="/Skills" exact component={Skills} />
+        </div>
+      </Switch>
     );
   }
 }
